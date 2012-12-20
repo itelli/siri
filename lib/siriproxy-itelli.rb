@@ -162,6 +162,17 @@ listen_for /Hallo Siri/i do
 say "Hallo Ludwig"
 end
 
+listen_for /Matthias/i do
+esponse = ask "Hallo Matthias, wie war dein Meeting mit der SAP?" 
+
+if (response =~ /gut/i)
+say "Das freut mich", spoken: "Das freut mic"
+else  
+say "Das war ja zu erwarten", spoken: "Das war ja zu erwarten"
+end
+
+end
+
 listen_for /Sing mir ein Lied/i do
 response = ask "Gerne, ein Weihnachtslied?" 
 
