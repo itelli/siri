@@ -142,7 +142,7 @@ end
 
 #Listeners section
 
-listen_for /find itelligence server/i do
+listen_for /find itelli/i do
 say "Searching itelligence Gateway, einen Moment bitte"
     
 Thread.new {
