@@ -6,8 +6,9 @@ require 'httparty'
 require 'nokogiri'
 require 'open-uri'
 
+
 class SiriProxy::Plugin::itelli < SiriProxy::Plugin
-def initialize(config)
+  def initialize(config)
 # Instance Variables
   @sapgw_hostname = "http://bfescm42.crm-demo.de:8080/"
 #Acct Variables (Stored globally so that in the event a user makes a second request
