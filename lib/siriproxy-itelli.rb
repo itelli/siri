@@ -163,12 +163,10 @@ say "Hallo Ludwig"
 end
 
 listen_for /Sing mir ein Lied/i do
-response = "no"
-
-response = ask "Gerne, Ein Weihnachtslied?" 
+response = ask "Gerne, ein Weihnachtslied?" 
 
 if (response =~ /yes/i)
-spoken: "O du froehliche, o du selige, gnadenbringende Weihnachtszeit! Welt ging verloren, Christ ist geboren: Freue, freue dich, o Christenheit!"
+say "Oh du froehliche," + " oh du sehlige", spoken: "Oh du froehliche, oh du sehlige"
 else  
 say "Dann eben nicht"
 end
