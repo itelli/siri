@@ -165,10 +165,10 @@ end
 listen_for /Sing mir ein Lied/i do
 response = ask "Gerne, ein Weihnachtslied?" 
 
-if (response =~ /yes/i)
-say "Oh du froehliche," + " oh du sehlige", spoken: "Oh du froehliche, oh du sehlige"
+if (response =~ /ja/i)
+say "Oh du froehliche," + " oh du sehlige" " Gnadenbringende Weihnachtszeit." + " Welt ging verloren," + " Christ ward geboren," + " Freue, freue dich," + " O Christenheit!", spoken: "Oh du froehliche, oh du sehlige"
 else  
-say "Dann eben nicht"
+say "I'm on the highway to hell" + " On the highway to hell" + " Highway to hell" + " I'm on the highway to hell", spoken: "Highway to Hell"
 end
 
 end
