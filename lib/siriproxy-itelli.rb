@@ -26,7 +26,6 @@ class SiriProxy::Plugin::itelli < SiriProxy::Plugin
 @acc_email = ""
 end
 
-
 def test_connection
 #We simply fetching some data from a gateway call to ensure the system responds
 #If you are using your own gateway box, I suggest connecting to
@@ -159,6 +158,10 @@ request_completed
 }
 end
 
+listen_for /Hallo Siri/i do
+say "Hallo Ludwig"
+end
+
 listen_for /(open|show) (account|company) details/i do
 response = "no"
 if (@acc_no)
@@ -202,10 +205,6 @@ show_account_name (acctno)
 
 request_completed
 }
-end
-
-listen_for /Hallo Siri/i do
-say "Hallo Ludwig"
 end
 
 listen_for /show sales data for (.*)/i do
