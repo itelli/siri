@@ -203,15 +203,14 @@ listen_for /test/i do
 object = SiriAddViews.new
 object.make_root(last_ref_id)
 
-puts "read file"
-
-answer = SiriAnswer.new("Itelligence", [SiriAnswerLine.new('logo','http://1.1.1.2/bmi/www.itelligence.de/images/itelligence-logo.gif'),
+answer = SiriAnswer.new("Itelligence", [SiriAnswerLine.new('logo','http://www.itelligence.de/images/itelligence-logo.gif'),
 
 SiriAnswerLine.new("itelligence AG"),
-SiriAnswerLine.new("--------------------------------------")
+SiriAnswerLine.new("--------------------------------------"),
+SiriAnswerLine.new("SiriProxy"),
 ])
 
-     object.views << SiriAnswerSnippet.new([answer])
+object.views << SiriAnswerSnippet.new([answer])
 send_object object
 end
 
