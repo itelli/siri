@@ -203,6 +203,9 @@ request_completed
 }
 end
 
+listen_for /Hallo Siri/i do
+say "Hallo Ludwig"
+end
 
 listen_for /show sales data for (.*)/i do
 say "My name is Siri, not HANA."
