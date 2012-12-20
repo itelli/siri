@@ -199,6 +199,22 @@ say "Das wuensche ich dir auch!", spoken: "Bis im neuen Jahr 2013"
 
 end
 
+listen_for /test/i do
+object = SiriAddViews.new
+object.make_root(last_ref_id)
+
+puts "read file"
+
+answer = SiriAnswer.new("Itelligence", [SiriAnswerLine.new('logo','http://1.1.1.2/bmi/www.itelligence.de/images/itelligence-logo.gif'),
+
+SiriAnswerLine.new("itelligence AG"),
+SiriAnswerLine.new("--------------------------------------")
+])
+
+     object.views << SiriAnswerSnippet.new([answer])
+send_object object
+end
+
 
 listen_for /(open|show) (account|company) details/i do
 response = "no"
