@@ -168,7 +168,7 @@ response = "no"
 response = ask "Gerne, Ein Weihnachtslied?" 
 
 if (response =~ /yes/i)
-spoken: "O du fröhliche, o du selige, gnadenbringende Weihnachtszeit! Welt ging verloren, Christ ist geboren: Freue, freue dich, o Christenheit!"
+spoken: "O du froehliche, o du selige, gnadenbringende Weihnachtszeit! Welt ging verloren, Christ ist geboren: Freue, freue dich, o Christenheit!"
 else  
 say "Dann eben nicht"
 end
