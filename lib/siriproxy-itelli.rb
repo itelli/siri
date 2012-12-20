@@ -143,7 +143,7 @@ end
 #Listeners section
 
 listen_for /Finde SAP in Bielefeld/i do
-say "Searching itelligence Gateway, einen Moment bitte"
+say "Suche itelligence Gateway, einen Moment bitte"
     
 Thread.new {
 t = test_connection
@@ -160,6 +160,15 @@ end
 
 listen_for /Hallo Siri/i do
 say "Hallo Ludwig"
+end
+
+listen_for /Sing mir ein Lied/i do
+
+say "O du fröhliche, o du selige,"
+say "gnadenbringende Weihnachtszeit!"
+say "Welt ging verloren, Christ ist geboren:"
+say "Freue, freue dich, o Christenheit!"
+
 end
 
 listen_for /(open|show) (account|company) details/i do
