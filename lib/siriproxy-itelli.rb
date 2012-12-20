@@ -7,7 +7,7 @@ require 'nokogiri'
 require 'open-uri'
 
 
-class SiriProxy::Plugin::itelli < SiriProxy::Plugin
+class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
   def initialize(config)
 # Instance Variables
   @sapgw_hostname = "http://bfescm42.crm-demo.de:8080/"
