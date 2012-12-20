@@ -166,12 +166,19 @@ listen_for /Sing mir ein Lied/i do
 response = ask "Gerne, ein Weihnachtslied?" 
 
 if (response =~ /ja/i)
-say "Oh du froehliche," + " oh du sehlige" " Gnadenbringende Weihnachtszeit." + " Welt ging verloren," + " Christ ward geboren," + " Freue, freue dich," + " O Christenheit!", spoken: "Oh du froehliche, oh du sehlige"
+say "Oh du froehliche, oh du sehlige", spoken: "Oh du froehliche, oh du sehlige" + " Gnadenbringende Weihnachtszeit." + " Welt ging verloren," + " Christ ward geboren," + " Freue, freue dich," + " O Christenheit!"
 else  
-say "I'm on the highway to hell" + " On the highway to hell" + " Highway to hell" + " I'm on the highway to hell", spoken: "Highway to Hell"
+say "I'm on the highway to hell", spoken: "I'm on the highway to hell" + " On the highway to hell" + " Highway to hell" + " I'm on the highway to hell"
 end
 
 end
+
+listen_for /Frohe Weihnachten/i do
+
+say "Das wünsche ich dir auch!", spoken: "Bis im neuen Jahr 2013"
+
+end
+
 
 listen_for /(open|show) (account|company) details/i do
 response = "no"
