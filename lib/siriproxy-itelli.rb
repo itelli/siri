@@ -162,6 +162,15 @@ listen_for /Hallo Siri/i do
 say "Hallo Ludwig"
 end
 
+listen_for /Starte (.*)/i do |userAction|
+    while userAction.empty? do
+    userAction = ask "What program?"
+    end
+`osascript -e 'tell application "#{userAction.chop}" to activate'`
+say "Opening #{userAction.chop}."
+    request_completed
+end
+
 listen_for /Matthias/i do
 esponse = ask "Hallo Matthias, wie war dein Meeting mit der SAP?" 
 
