@@ -6,7 +6,6 @@ require 'httparty'
 require 'nokogiri'
 require 'open-uri'
 
-
 class SiriProxy::Plugin::itelli < SiriProxy::Plugin
 def initialize(config)
 # Instance Variables
