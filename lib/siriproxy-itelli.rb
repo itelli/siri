@@ -166,7 +166,7 @@ listen_for /Matthias/i do
 esponse = ask "Hallo Matthias, wie war dein Meeting mit der SAP?" 
 
 if (response =~ /gut/i)
-say "Das freut mich", spoken: "Das freut mic"
+say "Das freut mich", spoken: "Das freut mich"
 else  
 say "Das war ja zu erwarten", spoken: "Das war ja zu erwarten"
 end
@@ -186,7 +186,7 @@ end
 
 listen_for /Frohe Weihnachten/i do
 
-say "Das wünsche ich dir auch!", spoken: "Bis im neuen Jahr 2013"
+say "Das wuensche ich dir auch!", spoken: "Bis im neuen Jahr 2013"
 
 end
 
