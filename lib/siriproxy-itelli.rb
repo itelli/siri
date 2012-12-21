@@ -249,7 +249,7 @@ request_completed
 }
 end
 
-listen_for /show sales data for (.*)/i do
-say "My name is Siri, not HANA."
+listen_for /Hallo Hanna/i do
+say "Mein Name ist Siri, nicht HANA."
 end
 end
