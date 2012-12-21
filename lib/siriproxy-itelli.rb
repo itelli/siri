@@ -171,13 +171,13 @@ say "Opening #{userAction.chop}."
     request_completed
 end
 
-listen_for /Matthias/i do
-esponse = ask "Hallo Matthias, wie war dein Meeting mit der SAP?" 
+listen_for /Guten Morgen/i do
+esponse = ask "Guten Morgen Ludwig, guten Morgen liebes Enders Team. Viel Spaß heute!" 
 
-if (response =~ /gut/i)
-say "Das freut mich", spoken: "Das freut mich"
+if (response =~ /Danke/i)
+say "Gerne", spoken: "Gerne"
 else  
-say "Das war ja zu erwarten", spoken: "Das war ja zu erwarten"
+say "Viele Spaß", spoken: "Viele Spaß"
 end
 
 end
