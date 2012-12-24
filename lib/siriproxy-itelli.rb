@@ -238,12 +238,12 @@ request_completed
 end
 
 listen_for /Zeige Kundenstammsatz/i do
-acctno = ask "OK, welche Kundennummer?" #Frage nach Kundennummer
-say "Prüfe Kundennummer: " + acctno, spoken: "Prüfe"
+kunnr = ask "OK, welche Kundennummer?" #Frage nach Kundennummer
+say "Prüfe Kundennummer: " + kunnr, spoken: "Prüfe"
 
 Thread.new {
-acctno.strip!
-show_account_name (acctno)
+kunnr.strip!
+show_account_name (kunnr)
 
 request_completed
 }
