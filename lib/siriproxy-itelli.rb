@@ -237,9 +237,9 @@ request_completed
 
 end
 
-listen_for /(show|what) account name/i do
-acctno = ask "OK, for which account number?" #ask the user for account number
-say "Checking account: " + acctno, spoken: "Checking"
+listen_for /Zeige Kundenstammsatz/i do
+acctno = ask "OK, welche Kundennummer?" #Frage nach Kundennummer
+say "Prüfe Kundennummer: " + acctno, spoken: "Prüfe"
 
 Thread.new {
 acctno.strip!
