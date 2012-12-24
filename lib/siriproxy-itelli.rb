@@ -46,7 +46,7 @@ end
 def show_account(acctno)
 uri = "#{@sapgw_hostname}sap/opu/sdata/iwcnt/account/AccountCollection(Value=%27" + acctno +"%27,Scheme_ID=%27ACCOUNT%27,Scheme_Agency_ID=%27HU4_800%27)"
 doc = Nokogiri::HTML(open(uri))
-puts "Opened URL " + uri
+puts "URL " + uri
 
 doc.xpath('//value').each do |acc_no1|
 @acc_no = acc_no1.content
@@ -109,19 +109,15 @@ end
 def show_account_name(acctno)
 uri = "#{@sapgw_hostname}sap/opu/sdata/iwcnt/account/AccountCollection(Value=%27" + acctno + "%27,Scheme_ID=%27ACCOUNT%27,Scheme_Agency_ID=%27HU4_800%27)"
 doc = Nokogiri::HTML(open(uri))
-puts "Opened URL " + uri
+puts "URL " + uri
 
 @acc_no = acctno
-
-doc.xpath('//categorytext').each do |acc_cat1|
-@acc_cat = acc_cat1.content
-end
 
 doc.xpath('//organizationname').each do |acc_name1|
 @acc_name = acc_name1.content
 end
 
-say "The account name is " + @acc_name + " and it looks like its a " + @acc_cat
+say "Der Name des Kunden mit der Nummer" + @acc_no + " ist " + @acc_name
 
 end
 
