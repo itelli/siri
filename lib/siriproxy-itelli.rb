@@ -20,9 +20,28 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end
 
-    listen_for /Show me my planned appointments today/i do
+    listen_for /Show keyfigures second visit/i do
     
-        say "09:30 Visit, Alibaba Verlag" + "13:30 Visit, Logistik BemAT GmbH", spoken: "OK, Oliver, I found four appointments for today"
+        spoken: "Opening Account: Logistik BemAT GmbH in SAP"
+        
+	object = SiriAddViews.new
+	object.make_root(last_ref_id)
+	
+	answer = SiriAnswer.new("Account 1000", [SiriAnswerLine.new('logo','http://www.itelligence.de/images/itelligence-logo.gif'),
+	
+	SiriAnswerLine.new("Logistik BemAT GmbH")
+	SiriAnswerLine.new("Customer Group A"),
+	SiriAnswerLine.new("Revenew last year 2,11 Mio EUR"),
+	SiriAnswerLine.new("Revenew actual year 1,23 Mio. EUR"),
+	SiriAnswerLine.new("--------------------------------------"),
+	SiriAnswerLine.new("Open items overdue: 8.323 EUR"),
+	SiriAnswerLine.new("--------------------------------------"),
+	SiriAnswerLine.new("2 Open Opportunities: 70 TEUR"),
+	SiriAnswerLine.new("1 Open Task Priority High"),
+	])
+	
+	object.views << SiriAnswerSnippet.new([answer])
+	send_object object        
         
     request_completed
     end
