@@ -28,8 +28,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 	object.make_root(last_ref_id)
 	
 	answer = SiriAnswer.new("Account 1000", [SiriAnswerLine.new('logo','http://s7.directupload.net/images/130130/jdchnb9s.png'),
-	
-	SiriAnswerLine.new("Logistik BemAT GmbH")
+	SiriAnswerLine.new("Logistik BemAT GmbH"),
 	SiriAnswerLine.new("Customer Group A"),
 	SiriAnswerLine.new("Revenew last year 2,11 Mio EUR"),
 	SiriAnswerLine.new("Revenew actual year 1,23 Mio. EUR"),
@@ -48,14 +47,13 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     
     listen_for /Show details open task/i do
     
-    	spoken: "Opening Task: Account 1000 in SAP"
+    	spoken "Opening Task: Account 1000 in SAP"
         
 	object = SiriAddViews.new
 	object.make_root(last_ref_id)
 	
 	answer = SiriAnswer.new("Account 1000", [SiriAnswerLine.new('logo','http://s7.directupload.net/images/130130/jdchnb9s.png'),
-	
-	SiriAnswerLine.new("Logistik BemAT GmbH")
+	SiriAnswerLine.new("Logistik BemAT GmbH"),
 	SiriAnswerLine.new("Task Due Date: 31.01.2013"),
 	SiriAnswerLine.new("Priority: High"),
 	SiriAnswerLine.new("Description: Send new Pricelist"),
