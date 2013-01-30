@@ -6,7 +6,6 @@ require 'httparty'
 require 'nokogiri'
 require 'open-uri'
 
-
 class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
   def initialize(config)
 # Instance Variables
@@ -41,7 +40,6 @@ end
 @response = "SAP Server: " + @sapgw_hostname + "<br />Company: " + @response
     return @response
 end
-
 
 def show_account(acctno)
 uri = "#{@sapgw_hostname}sap/opu/sdata/iwcnt/account/AccountCollection(Value=%27" + acctno +"%27,Scheme_ID=%27ACCOUNT%27,Scheme_Agency_ID=%27HU4_800%27)"
@@ -121,7 +119,6 @@ say "Der Name des Kunden mit der Nummer" + @acc_no + " ist " + @acc_name
 
 end
 
-
 def show_map (object_name)
 #Method does not work correctly
 add_views = SiriAddViews.new
@@ -140,104 +137,8 @@ end
 
 listen_for /Show me my planned appointments today/i do
 say "09:30 Visit, Alibaba Verlag" + "13:30 Visit, Logistik BemAT GmbH" + "16:00 Visit, Steinbach Communications" + "20:00 Kickoff Party - till drunk", spoken: "OK, Oliver, I found four appointments for today"
-request_completed
-end
-
-listen_for /Finde SAP in Bielefeld/i do
-say "Suche itelligence Gateway, einen Moment bitte"
-    
-Thread.new {
-t = test_connection
-object = SiriAddViews.new
-object.make_root(last_ref_id)
-say "Connection to itelligence Gateway is succesful"
-answer = SiriAnswer.new(t)
-object.views << SiriAnswerSnippet.new([answer])
-send_object object
 
 request_completed
-}
-end
-
-listen_for /Hallo Siri/i do
-say "Hallo Ludwig"
-end
-
-listen_for /Starte (.*)/i do |userAction|
-    while userAction.empty? do
-    userAction = ask "What program?"
-    end
-`osascript -e 'tell application "#{userAction.chop}" to activate'`
-say "Opening #{userAction.chop}."
-    request_completed
-end
-
-listen_for /Sing mir ein Lied/i do
-response = ask "Gerne, ein Weihnachtslied?" 
-
-if (response =~ /ja/i)
-say "Oh du froehliche, oh du sehlige", spoken: "Oh du froehliche, oh du sehlige" + " Gnadenbringende Weihnachtszeit." + " Welt ging verloren," + " Christ ward geboren," + " Freue, freue dich," + " O Christenheit!"
-else  
-say "I'm on the highway to hell", spoken: "I'm on the highway to hell" + " On the highway to hell" + " Highway to hell" + " I'm on the highway to hell"
-end
-
-end
-
-listen_for /Frohe Weihnachten/i do
-say "Das wuensche ich dir auch!", spoken: "Bis im neuen Jahr 2013"
-end
-
-listen_for /test/i do
-object = SiriAddViews.new
-object.make_root(last_ref_id)
-
-answer = SiriAnswer.new("Itelligence", [SiriAnswerLine.new('logo','http://www.itelligence.de/images/itelligence-logo.gif'),
-
-SiriAnswerLine.new("itelligence AG"),
-SiriAnswerLine.new("--------------------------------------"),
-SiriAnswerLine.new("SiriProxy"),
-])
-
-object.views << SiriAnswerSnippet.new([answer])
-send_object object
-end
-
-
-listen_for /(open|show) (account|company) details/i do
-response = "no"
-if (@acc_no)
-response = ask "For " + @acc_name + "?"	
-end
-
-if (response =~ /yes/i)
-acctno = @acc_no
-else	
-acctno = ask "OK, for which account?" #ask the user for account number
-acctno.strip!
-     end
-
-say "Opening account: " + acctno + " ", spoken: "Opening account"
-
-if (acctno) #process their response
-Thread.new {
-show_account(acctno)
-request_completed
-}
-end
-end
-
-listen_for /show map for (.*)/i do | accntname |
-say "OK, I will check for you"
-Thread.new {
-acctname.strip!
-show_map (object_name)
-request_completed
-}
-
-end
-
-listen_for /Hallo Hanna/i do
-say "Mein Name ist Siri, nicht HANA."
 end
 
 end
