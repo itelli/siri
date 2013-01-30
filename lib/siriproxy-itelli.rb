@@ -22,7 +22,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 
     listen_for /Show me my planned appointments today/i do
     
-        say "Visit, Alibaba Verlag", spoken "OK, Oliver, I found four appointments for today"
+        say "Visit, Alibaba Verlag", spoken: "OK, Oliver, I found four appointments for today"
         
     request_completed
     end
