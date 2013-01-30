@@ -138,6 +138,14 @@ end
 
 #Listeners section
 
+listen_for /Show me my planned appointments today/i do
+
+say "09:30 Visit, Alibaba Verlag" + "13:30 Visit, Logistik BemAT GmbH" + "16:00 Visit, Steinbach Communications" + "20:00 Kickoff Party - till drunk", spoken "OK, Oliver, I found four appointments for today"
+
+request_completed
+
+end
+
 listen_for /Finde SAP in Bielefeld/i do
 say "Suche itelligence Gateway, einen Moment bitte"
     
