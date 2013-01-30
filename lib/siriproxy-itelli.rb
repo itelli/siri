@@ -139,11 +139,8 @@ end
 #Listeners section
 
 listen_for /Show me my planned appointments today/i do
-
 say "09:30 Visit, Alibaba Verlag" + "13:30 Visit, Logistik BemAT GmbH" + "16:00 Visit, Steinbach Communications" + "20:00 Kickoff Party - till drunk", spoken: "OK, Oliver, I found four appointments for today"
-
 request_completed
-
 end
 
 listen_for /Finde SAP in Bielefeld/i do
@@ -187,9 +184,7 @@ end
 end
 
 listen_for /Frohe Weihnachten/i do
-
 say "Das wuensche ich dir auch!", spoken: "Bis im neuen Jahr 2013"
-
 end
 
 listen_for /test/i do
@@ -241,19 +236,8 @@ request_completed
 
 end
 
-listen_for /Zeige Kundenstammsatz/i do
-kunnr = ask "OK, welche Kundennummer?" #Frage nach Kundennummer
-say "Prüfe Kundennummer: " + kunnr, spoken: "Prüfe"
-
-Thread.new {
-kunnr.strip!
-show_account_name (kunnr)
-
-request_completed
-}
-end
-
 listen_for /Hallo Hanna/i do
 say "Mein Name ist Siri, nicht HANA."
 end
+
 end
