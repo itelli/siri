@@ -22,7 +22,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 
     listen_for /Show details second visit/i do
     
-        spoken: "Opening Account: Logistik BemAT GmbH in SAP"
+        spoken "Opening Account: Logistik BemAT GmbH in SAP"
         
 	object = SiriAddViews.new
 	object.make_root(last_ref_id)
