@@ -20,7 +20,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end
 
-    listen_for /Show keyfigures second visit/i do
+    listen_for /Show details second visit/i do
     
         spoken: "Opening Account: Logistik BemAT GmbH in SAP"
         
@@ -67,7 +67,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end    
     
-   listen_for /Open SalesKit and send Pricelist to Contact Person /i do
+   listen_for /Use SalesKit and send Pricelist to Contact Person/i do
 	say "Find the new Priceliste attached", spoken: "Here is your message to Klaus Rainer Berger"
 	
 	response = ask "Send or Cancel?" 
