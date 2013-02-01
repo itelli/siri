@@ -6,7 +6,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     def initialize(config)
     end
 
-    listen_for /Show details second visit/i do
+    listen_for /Show details second (.*)/i do | visit |
     
         say "Opening Account: Logistik BemAT GmbH in SAP"
         
@@ -31,7 +31,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end
     
-    listen_for /Show details open task/i do
+    listen_for /Show details open (.*)/i do | task |
     
     	say "Opening Task: Account 1000 in SAP"
         
@@ -53,15 +53,29 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end    
     
-   listen_for /Use SalesKit and send Pricelist to Contact Person/i do
+   listen_for /Use (.*) and send (.*) to (.*)/i do | app, obejct, person |
 	say "Find the new Priceliste attached", spoken: "Here is your message to Klaus Rainer Berger"
+	
+        object = SiriAddViews.new
+	object.make_root(last_ref_id)
+	
+	answer = SiriAnswer.new("Account 1000", [SiriAnswerLine.new('logo','http://s7.directupload.net/images/130130/jdchnb9s.png'),
+	SiriAnswerLine.new("Hello Klaus"),
+	SiriAnswerLine.new("Please find the new priceliste attached."),
+	SiriAnswerLine.new(""),
+	SiriAnswerLine.new("Best regards,"),
+	SiriAnswerLine.new("Oliver"),
+	])
+	
+	object.views << SiriAnswerSnippet.new([answer])
+	send_object object 
 	
 	response = ask "Send or Cancel?" 
 	
 	if (response =~ /send/i)
-	say "Ok, I sent it."
+	say "Ok, I'm sending it."
 	else  
-	say "Ok, i close it now."
+	say "Ok, I'm closing it now."
 	end
 	
 	say "Open Task for Account 1000 in SAP was closed."
