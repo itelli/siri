@@ -80,6 +80,16 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 	
 	say "Open Task for Account 1000 in SAP was closed."
     request_completed
-    end    
+    end  
+    
+    listen_for /How can I close (.*)/i do | deals |
+    	say "Sorry I'm Siri not Hana!"  
+    request_completed
+    end     
+    
+    listen_for /Thank's for your (.*)/i do | help |
+    	say "No, problem - don't forget the party tonight!"  
+    request_completed
+    end       
 	
 end
