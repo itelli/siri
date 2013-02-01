@@ -1,23 +1,9 @@
 require 'cora'
 require 'siri_objects'
-require 'pp'
-require 'json'
-require 'httparty'
-require 'nokogiri'
-require 'open-uri'
 
 class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 
     def initialize(config)
-    end
-
-    listen_for /The hubs last message/i do
-    page = HTTParty.get('https://status.github.com/api/last-message.json').body
-    reply = JSON.parse(page)
-    
-        say "The last message was: #{reply["body"]}. The status then was '#{reply["status"]}' and that was at #{reply["created_on"]}"
-    
-    request_completed
     end
 
     listen_for /Show details second visit/i do
