@@ -53,7 +53,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end    
     
-   listen_for /Use (.*) and send (.*) to (.*)/i do | app, obejct, person |
+   listen_for /Please (.*) and send (.*) to (.*)/i do | app, obejct, person |
 	say "Find the new Priceliste attached", spoken: "Here is your message to Klaus Rainer Berger"
 	
         object = SiriAddViews.new
