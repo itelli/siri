@@ -31,7 +31,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end
     
-    listen_for /Show details open (.*)/i do | task |
+    listen_for /Show details (.*)/i do | task |
     
     	say "Opening Task: Account 1000 in SAP"
         
@@ -53,8 +53,9 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end    
     
-   listen_for /Please (.*) and send (.*) to (.*)/i do | app, obejct, person |
-	say "Find the new Priceliste attached", spoken: "Here is your message to Klaus Rainer Berger"
+   listen_for /Please (.*)/i do | app, obejct, person |
+	say "Here is your message to Klaus Rainer Berger"
+	say "Hi Klaus" + "Find the new Priceliste attached" + "Best regards, Oliver"
 	
 	response = ask "Send or Cancel?" 
 	
@@ -65,7 +66,6 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 	end
 	
 	say "Open Task for Account 1000 in SAP was closed."
-	say "Email was sent."
     request_completed
     end  
     
