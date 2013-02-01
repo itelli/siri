@@ -59,7 +59,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
         object = SiriAddViews.new
 	object.make_root(last_ref_id)
 	
-	answer = SiriAnswer.new("Account 1000", [SiriAnswerLine.new('logo','http://s7.directupload.net/images/130130/jdchnb9s.png'),
+	answer = SiriAnswer.new("New message", [SiriAnswerLine.new('logo','http://s7.directupload.net/images/130130/jdchnb9s.png'),
 	SiriAnswerLine.new("Hello Klaus"),
 	SiriAnswerLine.new("Please find the new priceliste attached."),
 	SiriAnswerLine.new(""),
@@ -87,7 +87,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end     
     
-    listen_for /Thank's for your (.*)/i do | help |
+    listen_for /What a pity (.*)/i do | help |
     	say "No, problem - don't forget the party tonight!"  
     request_completed
     end       
