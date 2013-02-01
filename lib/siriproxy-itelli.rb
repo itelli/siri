@@ -8,7 +8,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 
     listen_for /Show details second (.*)/i do | visit |
     
-        say "Opening Account: Logistik BemAT GmbH in SAP"
+        say "Opening Account: Logistik BemAT GmbH in S A P"
         
 	object = SiriAddViews.new
 	object.make_root(last_ref_id)
@@ -31,9 +31,9 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end
     
-    listen_for /Show details (.*)/i do | task |
+    listen_for /Show details open (.*)/i do | task |
     
-    	say "Opening Task: Account 1000 in SAP"
+    	say "Opening Task: Account 1000 in S A P"
         
 	object = SiriAddViews.new
 	object.make_root(last_ref_id)
@@ -55,7 +55,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     
    listen_for /Please (.*)/i do | app, obejct, person |
 	say "Here is your message to Klaus Rainer Berger"
-	say "Hi Klaus" + "Find the new Priceliste attached" + "Best regards, Oliver"
+	say "Hi Klaus," + "Please find the new priceliste attached." + "Best regards, Oliver"
 	
 	response = ask "Send or Cancel?" 
 	
@@ -65,7 +65,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 	say "Ok, I'm closing it now."
 	end
 	
-	say "Open Task for Account 1000 in SAP was closed."
+	say "Open Task for Account 1000 in S A P was closed."
     request_completed
     end  
     
@@ -74,7 +74,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     request_completed
     end     
     
-    listen_for /What a pity (.*)/i do | help |
+    listen_for /What a (.*)/i do | help |
     	say "No problem - don't forget the party tonight!"  
     request_completed
     end       
