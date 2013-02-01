@@ -8,7 +8,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
 
     listen_for /Show details second visit/i do
     
-        spoken "Opening Account: Logistik BemAT GmbH in SAP"
+        say "Opening Account: Logistik BemAT GmbH in SAP"
         
 	object = SiriAddViews.new
 	object.make_root(last_ref_id)
@@ -33,7 +33,7 @@ class SiriProxy::Plugin::Itelli < SiriProxy::Plugin
     
     listen_for /Show details open task/i do
     
-    	spoken "Opening Task: Account 1000 in SAP"
+    	say "Opening Task: Account 1000 in SAP"
         
 	object = SiriAddViews.new
 	object.make_root(last_ref_id)
